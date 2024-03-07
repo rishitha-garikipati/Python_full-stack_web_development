@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import Users  # Assuming Users is the model for additional user details
-from managementapp.models import Hotel
+from adminapp.models import Hotel
 
 
 def signup(request):

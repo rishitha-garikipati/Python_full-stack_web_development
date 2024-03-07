@@ -1,14 +1,141 @@
 {% extends 'Navbar/usernavbar.html' %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% block body %}
 
-<h1 align="center">This is User Home Page</h1>
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking System - Home</title>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-form {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-form form {
+    display: inline-block;
+}
+
+.search-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.featured-hotels,
+.popular-destinations,
+.special-offers,
+.testimonials {
+    margin-bottom: 40px;
+}
+
+.featured-hotels h2,
+.popular-destinations h2,
+.special-offers h2,
+.testimonials h2 {
+    margin-bottom: 20px;
+}
+
+
+        .popular__card {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popular__content {
+  padding: 1rem;
+}
+
+.popular__card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.popular__card__header h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.popular__content p {
+  color: var(--text-light);
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="heading">Welcome to our Hotel Booking System</h1>
+
+    <div class="search-form">
+        <h2>Find Your Perfect Stay</h2>
+        <form id="search-form" action="{% url 'search' %}" method="GET">
+            <input type="text" name="location" placeholder="Enter Location">
+            <input type="date" name="checkin" placeholder="Check-in Date">
+            <input type="date" name="checkout" placeholder="Check-out Date">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="featured-hotels">
+        <h2>Featured Hotels</h2>
+         <div class="popular__card">
+          <img src="static/images/hotel 1.jpg" alt="popular hotel" />
+          <div class="popular__content">
+            <div class="popular_card_header">
+              <h4>The Taj Mahal Hotel</h4>
+              <h4>Rs 21,000</h4>
+            </div>
+            <p>Mumbai, India</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="popular-destinations">
+        <h2>Popular Destinations</h2>
+    </div>
+
+    <div class="special-offers">
+        <h2>Special Offers</h2>
+    </div>
+
+
+</div>
 
 </body>
+{% endblock %}
 </html>
