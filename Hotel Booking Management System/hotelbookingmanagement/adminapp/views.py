@@ -1,9 +1,71 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from .models import Hotel
 
-# Create your views here.
-def home(request):
-    return render(request,'home.html')
-def managementhomepage(request):
-    return render(request,'managementhomepage.html')
-def userhomepage(request):
-    return render(request,'userhomepage.html')
+from django.shortcuts import render, redirect
+from .models import Hotel
+
+def add_hotel(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        location = request.POST.get('location')
+        rating = request.POST.get('rating')
+        room_type = request.POST.get('room_type')
+        price_per_night = request.POST.get('price_per_night')
+        number_of_rooms = request.POST.get('number_of_rooms')
+        wifi_available = request.POST.get('wifi_available', False) == 'true'  # Convert to boolean
+        pool_available = request.POST.get('pool_available', False) == 'true'  # Convert to boolean
+        gym_available = request.POST.get('gym_available', False) == 'true'  # Convert to boolean
+        Laundry_facilities = request.POST.get('Laundry_facilities', False) == 'true'
+        Parking = request.POST.get('Parking', False) == 'true'
+        Restaurant = request.POST.get('Restaurant', False) == 'true'
+        image = request.FILES.get('image')
+
+        # Create a new Hotel object with the provided data
+        hotel = Hotel.objects.create(
+            name=name,
+            location=location,
+            rating=rating,
+            room_type=room_type,
+            price_per_night=price_per_night,
+            number_of_rooms=number_of_rooms,
+            wifi_available=wifi_available,
+            pool_available=pool_available,
+            gym_available=gym_available,
+            image=image
+        )
+        # Set additional facilities if they are provided
+        if hasattr(hotel, 'Laundry_facilities'):
+            hotel.Laundry_facilities = Laundry_facilities
+        if hasattr(hotel, 'Parking'):
+            hotel.Parking = Parking
+        if hasattr(hotel, 'Restaurant'):
+            hotel.Restaurant = Restaurant
+        hotel.save()  # Save the changes
+
+        return redirect('view_hotels')  # Redirect to view_hotels view
+    return render(request, 'add_hotel.html')  # Render add_hotel.html template if request method is not POST
+
+def view_hotels(request):
+    hotels = Hotel.objects.all()
+    return render(request, 'view_hotels.html', {'hotels': hotels})
+
+def delete_hotel(request, pk):
+    hotel = Hotel.objects.get(pk=pk)
+    hotel.delete()
+    return redirect(view_hotels)
+
+def search_view(request):
+    print("Search view called")  # Check if the view is being called
+    if request.method == 'GET':
+        location = request.GET.get('location')
+        print("Location:", location)  # Check if location parameter is correctly received
+        results = Hotel.objects.filter(location__icontains=location)
+        print("Results:", results)  # Check the queryset
+        results_list = [{'location': obj.location} for obj in results]
+        print("Results List:", results_list)  # Check the formatted results
+        return JsonResponse({'results': results_list})
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
