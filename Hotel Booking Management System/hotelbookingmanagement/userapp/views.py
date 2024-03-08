@@ -1,15 +1,9 @@
-import json
-
-from django.contrib.auth import authenticate
-from django.contrib.auth import login as lg
-
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.contrib import messages
-from django.http import JsonResponse
 from .models import Users  # Assuming Users is the model for additional user details
 from adminapp.models import Hotel
-
+from django.contrib.auth import authenticate, login as lg
 
 def signup(request):
     if request.method == "POST":
@@ -32,12 +26,12 @@ def signup(request):
             return redirect('signup')
 
         user = User.objects.create_user(username=username, password=password1, first_name=first_name,
-                                        last_name=last_name, email=email)
+                                         last_name=last_name, email=email)
         user.save()
-
         user_profile = Users.objects.create(user_id=user, gender=gender, img=img, mobile=mobile)
         user_profile.save()
 
+        # Redirect to login page upon successful signup
         return redirect('login')
 
     return render(request, 'signup.html')
@@ -48,16 +42,15 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
-        print(user)
         if user is not None:
-           if len(username) == 4:
-               lg(request,user)
-               messages.success(request, 'Login successful. Welcome!')
-               return redirect('managementhomepage')
-           else :
-               lg(request, user)
-               messages.success(request, 'Login successful. Welcome!')
-               return redirect('userhomepage')
+            if len(username) == 4:
+                lg(request, user)
+                messages.success(request, 'Login successful. Welcome!')
+                return redirect('managementhomepage')
+            else:
+                lg(request, user)
+                messages.success(request, 'Login successful. Welcome!')
+                return redirect('userhomepage')
         else:
             messages.error(request, 'Invalid Credentials')
             return render(request, 'login.html', {'fail': True})
@@ -70,13 +63,9 @@ def logout(request):
 def userhomepage(request):
     return render(request,'userhomepage.html')
 
-def managementhomepage(request):
-    return render(request,'managementhomepage.html')
-
 def bookhotel(request):
     hotels = Hotel.objects.all()
     return render(request,'bookhotel.html',{'hotels': hotels})
 
 def contactus(request):
     return render(request,'contactus.html')
-

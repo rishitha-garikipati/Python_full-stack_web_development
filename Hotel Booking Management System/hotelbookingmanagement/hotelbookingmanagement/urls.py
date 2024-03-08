@@ -1,5 +1,5 @@
 """
-URL configuration for hotelbookingmanagement project.
+URL configuration for HotelBookingSystem project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminapp/', include('adminapp.urls')),
     path('',include('managementapp.urls')),
-    path('user/',include('userapp.urls')),
+    path('user/',include('userapp.urls'))
 ]
 
 if settings .DEBUG:

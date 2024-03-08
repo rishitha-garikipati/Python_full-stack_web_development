@@ -56,16 +56,12 @@ def delete_hotel(request, pk):
     return redirect(view_hotels)
 
 def search_view(request):
-    print("Search view called")  # Check if the view is being called
     if request.method == 'GET':
         location = request.GET.get('location')
-        print("Location:", location)  # Check if location parameter is correctly received
         results = Hotel.objects.filter(location__icontains=location)
-        print("Results:", results)  # Check the queryset
-        results_list = [{'location': obj.location} for obj in results]
-        print("Results List:", results_list)  # Check the formatted results
-        return JsonResponse({'results': results_list})
+        return render(request,'bookhotel.html',{'hotels': results})
     else:
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+        return render(request,{'error': 'Method not allowed'}, status=405)
 
-
+def managementhomepage(request):
+    return render(request,'managementhomepage.html')
