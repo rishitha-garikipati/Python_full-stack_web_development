@@ -57,7 +57,7 @@ body {
 nav {
   max-width: 100%;
   margin: auto;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
   background-color: #EEA5A6; /* Change background color */
@@ -105,7 +105,7 @@ nav {
 
 
 .footer {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/images/signup-bg.jpg");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/images/sign-up-bg.jpg");
             background-position: center;
             background-size: cover;}
 
@@ -161,7 +161,7 @@ nav {
   height: 2px;
   background-color: white; /* Changed line color to white */
 }
-       @media (max-width: 900px) {
+       @media (width < 900px) {
   .booking__container form {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -181,7 +181,7 @@ nav {
   }
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .nav__links {
     display: none;
   }
@@ -222,14 +222,12 @@ nav {
         <li class="link"><a href="{% url 'userhomepage' %}">Home</a></li>
         <li class="link"><a href="{% url 'bookhotel' %}">Book Hotel</a></li>
         <li class="link"><a href="#">View Status</a></li>
-          <li class="link"><a href="#">Blog</a></li>
         <li class="link"><a href="{% url 'contactus' %}">Contact Us</a></li>
-        <li >
+            <li >
           <span > Welcome, {{ request.user.username }}</span>
         </li>
         <li >
           <a href="{% url 'logout' %}">Logout</a>
-        </li>
       </ul>
     </nav>
 {% block body%}
@@ -238,9 +236,9 @@ nav {
 <footer class="footer">
       <div class="section__container footer__container">
         <div class="footer__col">
-          <h3>Hotels.com</h3>
+          <h3>RVs&Co</h3>
           <p>
-            Hotels.com is a premier hotel booking website that offers a seamless and
+            RVs&Co is a premier hotel booking website that offers a seamless and
             convenient way to find and book accommodations worldwide.
           </p>
           <p>
@@ -253,15 +251,14 @@ nav {
           <h4>Company</h4>
           <p>About Us</p>
           <p>Our Team</p>
-          <p>Blog</p>
           <p>Book</p>
           <p>Contact Us</p>
         </div>
         <div class="footer__col">
           <h4>Legal</h4>
-          <p>FAQs</p>
-          <p>Terms & Conditions</p>
-          <p>Privacy Policy</p>
+          <p><a href="{% url 'faq' %}">FAQs</a></p>
+            <p><a href="{% url 'terms' %}">Terms & Conditions</a></p>
+            <p><a href="{% url 'privacy' %}">Privacy Policy</a></p>
         </div>
         <div class="footer__col">
           <h4>Resources</h4>
@@ -271,7 +268,7 @@ nav {
         </div>
       </div>
       <div class="footer__bar">
-        Copyright © 2023 Hotels.com. All rights reserved.
+        Copyright © 2023 M V S Vamshi. All rights reserved.
       </div>
     </footer>
 </body>
