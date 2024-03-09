@@ -46,7 +46,7 @@ def login(request):
             if len(username) == 4:
                 lg(request, user)
                 messages.success(request, 'Login successful. Welcome!')
-                return redirect('managementhomepage')
+                return redirect('adminhomepage')
             else:
                 lg(request, user)
                 messages.success(request, 'Login successful. Welcome!')

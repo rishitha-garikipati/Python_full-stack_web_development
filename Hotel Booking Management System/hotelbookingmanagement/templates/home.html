@@ -60,7 +60,7 @@ body {
   padding: 1rem 1rem 5rem 1rem;
 }
 
-.header__image__container {
+.header_image_container {
   position: relative;
   min-height: 500px;
   background-image: linear-gradient(
@@ -117,7 +117,7 @@ body {
   gap: 1rem;
 }
 
-.booking__container .input__group {
+.booking_container .input_group {
   width: 100%;
   position: relative;
 }
@@ -150,7 +150,7 @@ body {
   top: 0;
 }
 
-.booking__container .form__group p {
+.booking_container .form_group p {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: var(--text-light);
@@ -189,7 +189,7 @@ body {
   padding: 1rem;
 }
 
-.popular__card__header {
+.popular_card_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -197,7 +197,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.popular__card__header h4 {
+.popular_card_header h4 {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-dark);
@@ -389,43 +389,11 @@ body {
   </head>
   <body>
 
-    <header class="section__container header__container">
-      <div class="header__image__container">
+    <header class="section_container header_container">
+      <div class="header_image_container">
         <div class="header__content">
           <h1>Enjoy Your Dream Vacation</h1>
         </div>
-        <div class="booking__container">
-          <form>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="text" />
-                <label>Location</label>
-              </div>
-              <p>Where are you going?</p>
-            </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="text" />
-                <label>Check In</label>
-              </div>
-              <p>Add date</p>
-            </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="text" />
-                <label>Check Out</label>
-              </div>
-              <p>Add date</p>
-            </div>
-            <div class="form__group">
-              <div class="input__group">
-                <input type="text" />
-                <label>Guests</label>
-              </div>
-              <p>Add guests</p>
-            </div>
-          </form>
-          <button class="btn"><i class="ri-search-line"></i></button>
         </div>
       </div>
     </header>
@@ -434,7 +402,8 @@ body {
       <h2 class="section__header">Popular Hotels</h2>
       <div class="popular__grid">
         <div class="popular__card">
-          <img src="static/images/hotel 1.jpg" alt="popular hotel" />
+
+          <a href="{% url 'login' %}"><img src="static/images/hotel 1.jpg" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4>The Taj Mahal Hotel</h4>
@@ -444,7 +413,7 @@ body {
           </div>
         </div>
         <div class="popular__card">
-          <img src="static/images/hotel 2.jpg" alt="popular hotel" />
+          <a href="{% url 'login' %}"><img src="static/images/hotel 2.jpg" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4> Novotel </h4>
@@ -454,7 +423,7 @@ body {
           </div>
         </div>
         <div class="popular__card">
-          <img src="static/images/hotel 3.jpg" alt="popular hotel" />
+          <a href="{% url 'login' %}"><img src="static/images/hotel 3.jpg" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4>Marriott Hotel</h4>
@@ -464,7 +433,7 @@ body {
           </div>
         </div>
         <div class="popular__card">
-          <img src="static/images/hotel 4.png" alt="popular hotel" />
+          <a href="{% url 'login' %}"><img src="static/images/hotel 4.png" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4>ITC Grand Chola</h4>
@@ -474,7 +443,7 @@ body {
           </div>
         </div>
         <div class="popular__card">
-          <img src="static/images/hotel 5.jpg" alt="popular hotel" />
+          <a href="{% url 'login' %}"><img src="static/images/hotel 5.jpg" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4>Lemon Tree Hotel</h4>
@@ -484,7 +453,7 @@ body {
           </div>
         </div>
         <div class="popular__card">
-          <img src="static/images/hotel 6.jpg" alt="popular hotel" />
+          <a href="{% url 'login' %}"><img src="static/images/hotel 6.jpg" alt="popular hotel" ></a>
           <div class="popular__content">
             <div class="popular_card_header">
               <h4>Samrat Hotel</h4>
@@ -497,7 +466,7 @@ body {
     </section>
 
     <section class="client">
-      <div class="section__container client__container">
+      <div class="section_container client_container">
         <h2 class="section__header">What our client say</h2>
         <div class="client__grid">
           <div class="client__card">

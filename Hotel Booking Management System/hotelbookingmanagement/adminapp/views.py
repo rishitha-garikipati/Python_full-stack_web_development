@@ -63,5 +63,5 @@ def search_view(request):
     else:
         return render(request,{'error': 'Method not allowed'}, status=405)
 
-def managementhomepage(request):
-    return render(request,'managementhomepage.html')
+def adminhomepage(request):
+    return render(request,'adminhomepage.html')
