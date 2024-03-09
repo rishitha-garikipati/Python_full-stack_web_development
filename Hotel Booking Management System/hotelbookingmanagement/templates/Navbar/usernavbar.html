@@ -105,7 +105,7 @@ nav {
 
 
 .footer {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/images/sign-up-bg.jpg");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/images/signup-bg.jpg");
             background-position: center;
             background-size: cover;}
 
@@ -161,7 +161,7 @@ nav {
   height: 2px;
   background-color: white; /* Changed line color to white */
 }
-       @media (width < 900px) {
+       @media (max-width: 900px) {
   .booking__container form {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -181,7 +181,7 @@ nav {
   }
 }
 
-@media (width < 600px) {
+@media (max-width: 600px) {
   .nav__links {
     display: none;
   }
@@ -224,22 +224,23 @@ nav {
         <li class="link"><a href="#">View Status</a></li>
           <li class="link"><a href="#">Blog</a></li>
         <li class="link"><a href="{% url 'contactus' %}">Contact Us</a></li>
-            <li >
+        <li >
           <span > Welcome, {{ request.user.username }}</span>
         </li>
         <li >
           <a href="{% url 'logout' %}">Logout</a>
+        </li>
       </ul>
     </nav>
 {% block body%}
 
 {% endblock %}
 <footer class="footer">
-      <div class="section_container footer_container">
+      <div class="section__container footer__container">
         <div class="footer__col">
-          <h3>RVs&Co</h3>
+          <h3>Hotels.com</h3>
           <p>
-            RVs&Co is a premier hotel booking website that offers a seamless and
+            Hotels.com is a premier hotel booking website that offers a seamless and
             convenient way to find and book accommodations worldwide.
           </p>
           <p>

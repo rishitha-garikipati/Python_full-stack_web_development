@@ -59,11 +59,33 @@
     <h1>Search</h1>
      <div class="search-form">
         <h2>Find Your Perfect Stay</h2>
-        <form id="search-form" action="{% url 'search' %}" method="GET">
-            <input type="text" name="location" placeholder="Enter Location">
-            <input type="date" name="checkin" placeholder="Check-in Date">
-            <input type="date" name="checkout" placeholder="Check-out Date">
-            <button type="submit">Search</button>
+       <form id="search-form" action="{% url 'search' %}" method="GET">
+            <div class="input-group mb-3">
+                <select class="form-select" name="location">
+                    <option selected>Select Location</option>
+                    <option value="location1">Ahmedabad</option>
+                    <option value="location2">Banglore</option>
+                    <option value="location2">Chennai</option>
+                    <option value="location2">Delhi</option>
+                    <option value="location2">Hyderabad</option>
+                    <option value="location2">Indore</option>
+                    <option value="location2">Jaipur</option>
+                    <option value="location2">Kolkata</option>
+                    <option value="location2">Lucknow</option>
+                    <option value="location2">Mysore</option>
+                    <option value="location2">Mumbai</option>
+                    <option value="location2">Nagpur</option>
+                    <option value="location2">Raipur</option>
+                    <option value="location2">Surat</option>
+                    <option value="location2">Vizag</option>
+                    <option value="location2">Vijayawada</option>
+
+                    <!-- Add more options as needed -->
+                </select>
+                <input type="date" name="checkin" placeholder="Check-in Date">
+                <input type="date" name="checkout" placeholder="Check-out Date">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
         </form>
     </div>
     <div id="results"></div>
