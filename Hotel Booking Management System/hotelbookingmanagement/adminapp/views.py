@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Hotel
 
 from django.shortcuts import render, redirect
@@ -65,3 +65,8 @@ def search_view(request):
 
 def adminhomepage(request):
     return render(request,'adminhomepage.html')
+
+def hoteloverview(request,hotel_id):
+    hotel = Hotel.objects.filter(pk=hotel_id)
+    return render(request,'hoteloverview.html',{'hotels': hotel})
+

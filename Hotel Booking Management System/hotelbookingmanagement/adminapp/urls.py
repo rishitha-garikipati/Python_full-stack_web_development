@@ -7,5 +7,6 @@ urlpatterns = [
     path("delete_hotel/<int:pk>", views.delete_hotel, name='delete_hotel'),
     path('search/', views.search_view, name='search'),
     path('adminhomepage', views.adminhomepage, name='adminhomepage'),
+    path('hoteloverview/<int:hotel_id>',views.hoteloverview,name='hoteloverview'),
 
 ]

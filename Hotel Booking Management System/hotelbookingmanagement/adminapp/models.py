@@ -16,12 +16,12 @@ class Hotel(models.Model):
     Parking = models.BooleanField(default=False)
     Restaurant = models.BooleanField(default=False)
     image = models.ImageField(upload_to='images',null=True)
-    def __str__(self):
+    def _str_(self):
         return self.name
 
 # class HotelImage(models.Model):
 #     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 #     # image = models.ImageField(upload_to='')
 #
-#     def __str__(self):
+#     def _str_(self):
 #         return f"Image of {self.hotel.name}"

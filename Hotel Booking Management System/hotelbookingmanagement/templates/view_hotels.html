@@ -84,7 +84,7 @@
                         </div>
                         <br>
                         <br>
-                        <button class="edit-btn">Edit</button>
+                        <button class="edit-btn"><a href="{% url 'edit_hotel' pk=hotel.pk %}">Edit</a></button>
                         <button class="delete-btn"><a href="{% url 'delete_hotel' pk=hotel.pk %}">Delete</a></button>
                     </div>
                 </div>

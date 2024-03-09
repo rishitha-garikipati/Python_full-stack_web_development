@@ -63,24 +63,22 @@
             <div class="input-group mb-3">
                 <select class="form-select" name="location">
                     <option selected>Select Location</option>
-                    <option value="location1">Ahmedabad</option>
-                    <option value="location2">Banglore</option>
-                    <option value="location2">Chennai</option>
-                    <option value="location2">Delhi</option>
-                    <option value="location2">Hyderabad</option>
-                    <option value="location2">Indore</option>
-                    <option value="location2">Jaipur</option>
-                    <option value="location2">Kolkata</option>
-                    <option value="location2">Lucknow</option>
-                    <option value="location2">Mysore</option>
-                    <option value="location2">Mumbai</option>
-                    <option value="location2">Nagpur</option>
-                    <option value="location2">Raipur</option>
-                    <option value="location2">Surat</option>
-                    <option value="location2">Vizag</option>
-                    <option value="location2">Vijayawada</option>
-
-                    <!-- Add more options as needed -->
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Banglore">Banglore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Vizag">Vizag</option>
+                    <option value="Vijayawada">Vijayawada</option>
                 </select>
                 <input type="date" name="checkin" placeholder="Check-in Date">
                 <input type="date" name="checkout" placeholder="Check-out Date">
@@ -100,25 +98,10 @@
                         <h5 class="card-title"> {{ hotel.name }}</h5>
                         <div class="hotel-details">
                         <p class="card-text"> <i class="bi bi-geo-alt-fill"></i> Location: {{ hotel.location }}</p>
-                        <p class="card-text"> <i class="bi bi-star-fill"></i> Rating: {{ hotel.rating }}</p>
-                        <p class="card-text">Room Type: {{ hotel.room_type }}</p>
-                        <p class="card-text"> <i class="bi bi-currency-rupee"></i> Starting Price: {{ hotel.price_per_night }}</p>
-                        <p class="card-text"> Number of Rooms: {{ hotel.number_of_rooms }}</p>
-                            </div>
-                        <br>
-                        <h5 align="center">Popular Amenities</h5>
-                        <br>
-                        <div class="amenities-list">
-                            <p class="card-text">  <i class="fas fa-wifi"></i> Free WiFi {% if hotel.wifi_available %}  {% else %} <i class="fas fa-times"></i> {% endif %}</p>
-                            <p class="card-text"> <i class="fas fa-swimming-pool"></i> Pool {% if hotel.pool_available %}  {% else %} <i class="fas fa-times"></i> {% endif %}</p>
-                            <p class="card-text"> <i class="fas fa-dumbbell"></i> Gym {% if hotel.gym_available %}  {% else %} <i class="fas fa-times"></i> {% endif %}</p>
-                            <p class="card-text"> <i class="fas fa-tshirt"></i> Laungry facilities {% if hotel.Laundry_facilities %}  {% else %} <i class="fas fa-times"></i> {% endif %}</p>
-                            <p class="card-text"><i class="fas fa-car"></i> Parking available {% if hotel.Parking %}  {% else %} <i class="fas fa-times"></i> {% endif %}</p>
-                            <p class="card-text"> <i class="fas fa-utensils"></i> Restaurant {% if hotel.Restaurant %} {% else %} <i class="fas fa-times"></i> {% endif %}</p>
                         </div>
                         <br>
                         <br>
-                        <button class="edit-btn">Reserve Room</button>
+                        <button class="edit-btn"> <a href="{% url 'hoteloverview' hotel.id %}"> View full details</a></button>
                     </div>
                 </div>
             </div>
